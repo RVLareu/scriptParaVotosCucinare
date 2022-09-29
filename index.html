@@ -1,0 +1,28 @@
+<div>
+
+</div>
+<script>
+//fetch the data from the server
+
+fetch('https://paul.flowics.com/paul/public/polls/13619/62d1a9579bdf4d570350c09c?profile=interactive')
+.then(function(response) {
+  return response.json();
+})
+.then(function(myJson) {
+    
+    total = 0
+    for (p in r.json().get('polls')[0].get('items')){
+
+        console.log('{} votos {}'.format(p.get('name'), p.get('results').get('count')))
+        total +=  p.get('results').get('count')
+        console.log('######')
+    }
+
+    for (p in r.json().get('polls')[0].get('items')){
+
+        console.log('{} %{}'.format(p.get('name'), p.get('results').get('count')/total*100))
+    }
+});
+
+
+</script>
